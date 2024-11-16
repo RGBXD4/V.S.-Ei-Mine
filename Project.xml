@@ -25,7 +25,7 @@
 	<define name="HSCRIPT_ALLOWED" if="desktop || android" />
 	<define name="LUA_ALLOWED" if="desktop || android" />
 	<define name="ACHIEVEMENTS_ALLOWED" />
-	<define name="DISCORD_ALLOWED" />
+	<define name="DISCORD_ALLOWED" if="desktop" />
 	<define name="DISCORD_BUTTONS_ALLOWED" />
 	<define name="DARK_MODE" />
 	<define name="modFinalBuild" />
