@@ -19,10 +19,10 @@ import portable.utils.WinUtil;
 #if linux
 import lime.graphics.Image;
 #end
+import haxe.io.Path;
 // crash handler stuff
 #if CRASH_HANDLER
 import haxe.CallStack;
-import haxe.io.Path;
 import openfl.events.UncaughtErrorEvent;
 #end
 
@@ -37,7 +37,7 @@ class Main extends Sprite
 	var game = {
 		width: 1280, // WINDOW width
 		height: 720, // WINDOW height
-		initialState: TitleState, // initial game state
+		initialState: mobile.states.CopyState, // initial game state
 		zoom: -1.0, // game state bounds
 		framerate: 60, // default framerate
 		skipSplash: true, // if the default flixel splash screen should be skipped
@@ -60,8 +60,6 @@ class Main extends Sprite
 		// Credits to MAJigsaw77 (he's the og author for this code)
 		#if android
 		Sys.setCwd(Path.addTrailingSlash(Context.getExternalFilesDir()));
-		#elseif ios
-		Sys.setCwd(lime.system.System.applicationStorageDirectory);
 		#end
 
 		if (stage != null)
@@ -105,7 +103,6 @@ class Main extends Sprite
 		addChild(new FlxGame(game.width, game.height, game.initialState, #if (flixel < "5.0.0") game.zoom, #end game.framerate, game.framerate,
 			game.skipSplash, game.startFullscreen));
 
-		#if !mobile
 		fpsVar = new FPSCounter(10, 3, 0xFFFFFF);
 		addChild(fpsVar);
 		Lib.current.stage.align = "tl";
@@ -114,7 +111,6 @@ class Main extends Sprite
 		{
 			fpsVar.visible = ClientPrefs.data.showFPS;
 		}
-		#end
 
 		#if linux
 		var icon = Image.fromFile("icon.png");
