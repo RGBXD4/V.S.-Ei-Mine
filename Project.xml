@@ -124,9 +124,15 @@
 	<haxedef name="HXCPP_STACK_LINE" if="CRASH_HANDLER" />
 	<haxedef name="HXCPP_STACK_TRACE" if="CRASH_HANDLER" />
 
-	<haxedef name='no-deprecation-warnings' />
-
 	<haxelib name="extension-androidtools" if="android" />
+
+	<section if="android">
+		<config>
+			<!--Gradle-->
+			<android gradle-version="7.4.2" gradle-plugin="7.3.1" />
+
+		</config>
+	</section>
 		
 	<!-- _________________________________ Custom _______________________________ -->
 
