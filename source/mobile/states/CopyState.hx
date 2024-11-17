@@ -1,7 +1,7 @@
 package mobile.states;
 
 #if mobile
-import TitleState;
+import states.TitleState;
 import flixel.FlxG;
 import flixel.text.FlxText;
 import flixel.util.FlxColor;
