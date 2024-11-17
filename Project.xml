@@ -2,15 +2,7 @@
 <project>
 	<!-- _________________________ Application Settings _________________________ -->
 
-	<app
-		title="Friday Night Funkin': V.S. Ei Mine"
-		file="V.S. Ei Mine"
-		packageName="com.eimanécompany.eiminemod"
-		package="com.eimanécompany.eiminemod"
-		main="Main"
-		version="0.2.7"
-		company="EiMané Company"
-	/>
+	<app title="Friday Night Funkin': V.S. Ei Mine" file="V.S. Ei Mine" packageName="com.eimanécompany.eiminemod" package="com.eimanécompany.eiminemod" main="Main" version="0.2.7" company="EiMané Company" />
 
 	<set name="APP_ID" value="0x0100f6c013bbc000" />
 
