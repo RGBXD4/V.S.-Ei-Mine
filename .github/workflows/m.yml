@@ -27,7 +27,7 @@ jobs:
       - name: Setup Haxe
         uses: krdlab/setup-haxe@master
         with:
-          haxe-version: 4.3.5
+          haxe-version: 4.3.6
       
       - name: Restore Previous Cache
         id: cache-debug-build-android-restore
@@ -43,17 +43,16 @@ jobs:
       - name: Install Haxelib
         run: |
           haxelib setup ~/haxelib
-          haxelib git hxcpp https://github.com/mcagabe19-stuff/hxcpp.git
-          haxelib git lime https://github.com/mcagabe19-stuff/lime-8.2.1.git
+          haxelib git hxcpp https://github.com/mcagabe19-stuff/hxcpp
+          haxelib git lime https://github.com/mcagabe19-stuff/lime
           haxelib install openfl
           haxelib install flixel 5.5.0
           haxelib install flixel-tools
           haxelib install flixel-ui
-          haxelib install flixel-addons
+          haxelib install flixel-addons 3.2.1
           haxelib install tjson
           haxelib install hxCodec
           haxelib install hxjsonast
-          haxelib install hscript
           haxelib git SScript https://github.com/mayo78/SScript
           haxelib git flxanimate https://github.com/beihu235/flxanimate
           haxelib git linc_luajit https://github.com/mcagabe19-stuff/linc_luajit-rewriten
@@ -68,8 +67,7 @@ jobs:
           haxelib run lime config ANDROID_NDK_ROOT $ANDROID_NDK_LATEST_HOME
           haxelib run lime config JAVA_HOME $JAVA_HOME_17_X64
           haxelib run lime config ANDROID_SETUP true
-          haxelib set flixel 5.5.0
-          
+      
       - name: Compile
         run: haxelib run lime build android
       
@@ -113,4 +111,4 @@ jobs:
         uses: actions/upload-artifact@main
         with:
           name: buildAndroid
-          path: export/release/android/bin/app/build/outputs/apk/debug
+          path: export/release/android/bin/app/build/outputs/apk/release/*.apk
